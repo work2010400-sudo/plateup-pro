@@ -1,27 +1,20 @@
 {
-  "domain": "https://cookeasy-proplus-full-1.onrender.com",
-  "items": [
-    "Garlic Lemon Shrimp",
-    "French Onion Soup",
-    "Keto Chicken Alfredo",
-    "15 Minute Beef Stir Fry",
-    "Mediterranean Chickpea Salad",
-    "Spicy Tuna Sushi Bowl",
-    "Croque Monsieur",
-    "Honey Sriracha Chicken",
-    "Blueberry Protein Pancakes",
-    "Classic Cheeseburger",
-    "Quick Tomato Basil Pasta",
-    "Thai Peanut Noodles",
-    "Chicken Shawarma Wrap",
-    "Creamy Mushroom Chicken",
-    "Maple Glazed Salmon",
-    "Greek Chicken Bowl",
-    "Beef Tacos",
-    "Avocado Egg Toast",
-    "Turkey Caesar Wrap",
-    "Black Bean Quesadilla",
-    "Pesto Pasta with Chicken",
-    "Egg Fried Rice"
+  "domain": "https://plateup.pro",
+  "categories": [
+    {
+      "name": "Budget Cooking",
+      "items": [
+        "Cheap Chicken Rice",
+        "Beans Pasta",
+        "Eggs on Toast",
+        "Budget Chili",
+        "Tuna Wrap",
+        "One-pan Sausage Veggies",
+        "Quick Shrimp Tacos",
+        "Pesto Pasta with Chicken",
+        "Egg Fried Rice",
+        "Spinach Chickpea Salad"
+      ]
+    }
   ]
 }
