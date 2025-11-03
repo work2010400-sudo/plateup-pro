@@ -1,108 +1,63 @@
-/* PlateUp.pro — Magazine / Grid theme (Light) */
-
-/* Reset light */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family:Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  background:#fafafa;
-  color:#111;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.6;
-  font-size:16px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
 }
 
-/* Container */
-.site-header{
-  background:#ffffff;
-  border-bottom:1px solid #eee;
-  padding:18px 16px;
-  display:flex;
-  align-items:center;
-  gap:20px;
-  justify-content:space-between;
-}
-.site-header .brand{
-  display:flex;align-items:center;gap:12px;
-}
-.logo{height:46px; width:auto; display:block}
-.main-nav{display:flex;gap:10px;align-items:center}
-.main-nav a, .main-nav button{
-  border:0;background:transparent;color:#ff661a;padding:8px 10px;border-radius:8px;text-decoration:none;font-weight:600;cursor:pointer;
-}
-.main-nav a:hover, .main-nav button:hover{opacity:.9;transform:translateY(-1px)}
-
-/* Hero / top */
-.site-hero{
-  max-width:1200px;margin:18px auto;padding:0 16px;
-  display:flex;gap:20px;align-items:center;justify-content:space-between;
-}
-.site-hero .title{
-  font-size:1.5rem;font-weight:700;margin:0 0 6px 0;
-}
-.site-hero .subtitle{color:#666;font-size:0.95rem;margin:0}
-
-/* Grid layout */
-.container{
-  max-width:1100px;margin:18px auto;padding:0 16px;
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2, 1fr);
-  gap:18px;
+body {
+  background: #ffffff;
+  color: #111;
+  padding: 20px;
+  line-height: 1.6;
 }
 
-/* Card */
-.card{
-  background:#fff;border:1px solid #eee;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(15,20,30,0.04);
-  display:flex;flex-direction:column;height:100%;
-}
-.card-thumb{
-  width:100%;height:170px;object-fit:cover;display:block;
-}
-.card-body{padding:12px 14px;flex:1;display:flex;flex-direction:column;gap:8px}
-.card h2{font-size:1.05rem;margin:0;color:#111}
-.card p.excerpt{margin:0;color:#666;font-size:.95rem;flex:1}
-.card .meta{font-size:.85rem;color:#999;margin-top:8px}
-
-/* Ad placeholder (responsive) */
-.ad-slot{
-  margin:16px 0;padding:12px;border-radius:8px;background:linear-gradient(90deg,#fff,#fbfbfb);border:1px dashed #e6e6e6;text-align:center;color:#777
+header {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 20px;
 }
 
-/* Article page */
-.article-container{
-  max-width:840px;margin:20px auto;padding:16px;background:#fff;border-radius:10px;border:1px solid #eee;
-}
-.article-container h1{margin:0 0 12px 0;font-size:1.6rem}
-.article-thumb{width:100%;height:auto;border-radius:8px;margin:12px 0}
-.article-meta{color:#777;font-size:.95rem;margin-bottom:12px}
-.article-content p{margin:12px 0;line-height:1.8;color:#222;font-size:1rem}
-
-/* Sidebar (optional) */
-.layout{display:grid;grid-template-columns:1fr;gap:20px}
-@media(min-width:1000px){
-  .grid{grid-template-columns:repeat(3,1fr)}
-  .layout{grid-template-columns: 1fr 320px}
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 5px;
 }
 
-/* Footer */
-.site-footer{margin-top:40px;padding:28px 16px;background:#fff;border-top:1px solid #eee;text-align:center;color:#777;font-size:.95rem}
-
-/* Buttons */
-.btn{display:inline-block;background:#ff661a;color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:700}
-.btn:hover{opacity:.95;transform:translateY(-1px)}
-
-/* Small screens adjustments */
-@media(max-width:640px){
-  .site-header{padding:12px}
-  .logo{height:40px}
-  .card-thumb{height:140px}
-  .container{padding:0 12px}
-  .site-hero{flex-direction:column;align-items:flex-start;gap:6px}
+h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
-/* Accessibility */
-a{outline-color:rgba(255,102,26,.4)}
+#list {
+  display: grid;
+  gap: 15px;
+}
+
+.card {
+  display: block;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #111;
+  transition: .2s ease;
+}
+
+.card:hover {
+  border-color: #ccc;
+  background: #fafafa;
+}
+
+.card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #666;
+}
