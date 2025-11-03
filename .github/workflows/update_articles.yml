@@ -2,31 +2,57 @@ name: Update Articles
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: "0 */6 * * *"
   workflow_dispatch:
 
 jobs:
   update:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: 20
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install packages
+        run: npm install node-fetch@2 cheerio
 
-      - name: Generate new articles
-        run: node server/scripts/generateArticles.js
-
-      - name: Commit articles.json changes
+      - name: Fetch Cooking Trend Articles
+        id: fetch
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "actions@github.com"
-          git add server/data/articles.json
-          git commit -m "Auto-update articles [github action]" || echo "No changes"
+          node << 'EOF'
+          const fetch = require("node-fetch");
+          const cheerio = require("cheerio");
+          const fs = require("fs");
+
+          async function get() {
+            const url = "https://www.google.com/search?q=trending+cooking+recipes&tbm=nws";
+            const html = await fetch(url).then(r=>r.text());
+            const $ = cheerio.load(html);
+            const articles = [];
+
+            $("a.nWQGrd").each((_, el)=>{
+              const title = $(el).text();
+              const link = $(el).attr("href");
+              if(title && link) articles.push({title, link});
+            });
+
+            fs.writeFileSync("./articles.json", JSON.stringify(articles,null,2));
+          }
+          get();
+          EOF
+
+      - name: Commit changes
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add articles.json || true
+          git commit -m "update articles" || echo "no changes"
           git push
