@@ -1,0 +1,1 @@
+// generateArticles.js script here
