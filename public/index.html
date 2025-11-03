@@ -1,1 +1,43 @@
-<html><body><h1>PlateUp.pro</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PlateUp.pro - Trending Recipes</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>PlateUp.pro</h1>
+  <p>Your daily trending recipes</p>
+</header>
+
+<main>
+  <section id="articles">
+    <h2>Latest Recipes</h2>
+    <div id="list"></div>
+  </section>
+</main>
+
+<script>
+(async () => {
+  const res = await fetch('/data/articles.json');
+  const j = await res.json();
+  const list = j.list || [];
+  const el = document.querySelector('#list');
+  if(!list.length) {
+    el.innerHTML = "<p>No articles yet.</p>";
+    return;
+  }
+  el.innerHTML = list.map(a => `
+    <a class="card" href="/articles/${a.slug}.html">
+      <h3>${a.title}</h3>
+      <p>${a.category} · ${a.area}</p>
+    </a>
+  `).join('');
+})();
+</script>
+
+</body>
+</html>
